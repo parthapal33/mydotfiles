@@ -1,0 +1,101 @@
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+
+Plugin 'https://github.com/kien/ctrlp.vim'
+Plugin 'https://github.com/scrooloose/nerdtree'
+Plugin 'raimondi/delimitmate'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mattn/emmet-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'yuttie/comfortable-motion.vim'
+"Plugin 'yonchu/accelerated-smooth-scroll'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/vim-js-pretty-template'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+set nu
+set nowrap
+set ignorecase
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set nofixendofline
+
+set swapfile
+set dir=$HOME/.vim/tmp
+set undodir=$HOME/.vim/tmp
+set backupdir=$HOME/.vim/tmp
+
+set splitbelow
+set splitright
+
+set incsearch
+
+" Add jspf syntax
+autocmd BufNewFile,BufRead *.jspf set filetype=jsp 
+
+
+
+"CtrlP settings
+let g:ctrlp_working_path_mode = '0'
+set wildignore+=*/tmp/*,*.swp,*.zip,*.exe,*/node_modules/*,*.jar,*/.git/*,*/target/*,*/bin/*
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_match_window = 'min:1,max:25,results:50'
+
+"Angular 2
+autocmd FileType typescript JsPreTmpl html
+
+
+"Gvim settings
+if has("gui_running")
+	"set guifont=Consolas:h10
+    set guioptions = 
+    "colorscheme github
+    colorscheme summerfruit256
+    "set guioptions -=m 
+	"set guioptions -=T
+endif
